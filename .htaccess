@@ -1,0 +1,16 @@
+# Enable CORS for PDF files
+<FilesMatch "\.(pdf)$">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, OPTIONS"
+    Header set Access-Control-Allow-Headers "Range"
+    Header set Accept-Ranges "bytes"
+</FilesMatch>
+
+# Set proper MIME type for PDF files
+AddType application/pdf .pdf
+
+# Enable range requests for PDF files (important for Chrome PDF viewer)
+<FilesMatch "\.pdf$">
+    Header set Accept-Ranges bytes
+    Header set Cache-Control "public, max-age=3600"
+</FilesMatch>
