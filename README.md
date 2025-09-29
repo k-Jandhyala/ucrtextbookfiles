@@ -1,9 +1,10 @@
-# Files GitHub Pages Site
+# Files Static Site
 
-A simple static site for hosting course materials and documents.
+A simple static site for hosting course materials and documents. Works on both GitHub Pages and Vercel.
 
-## Setup Instructions
+## Deployment Options
 
+### Option 1: GitHub Pages
 1. **Enable GitHub Pages:**
    - Go to your repository settings
    - Navigate to "Pages" in the left sidebar
@@ -14,8 +15,21 @@ A simple static site for hosting course materials and documents.
    - The site automatically deploys when you push to the `main` branch
    - The GitHub Actions workflow handles the deployment process
 
+### Option 2: Vercel (Recommended)
+1. **Deploy to Vercel:**
+   - Connect your GitHub repository to Vercel
+   - Vercel will automatically detect it as a static site
+   - The `vercel.json` configuration optimizes PDF serving
+   - Your site will be available at: `https://[your-project-name].vercel.app/`
+
+2. **Advantages of Vercel:**
+   - Better PDF handling and CORS support
+   - Faster global CDN
+   - Automatic HTTPS
+   - Better caching for static assets
+
 3. **Adding Files:**
-   - Place PDF files in the `public/` directory
+   - Place PDF files in the `files/` directory
    - Update the links in `index.html` accordingly
    - Use relative paths (not absolute paths starting with `/`)
 
@@ -24,9 +38,9 @@ A simple static site for hosting course materials and documents.
 ```
 /
 ├── index.html          # Main page
-├── public/             # Public files directory
-│   └── Textbooks/      # Course textbooks
-│       └── Engineering_Design_Visualization.pdf
+├── files/              # Course materials directory
+│   └── Engineering_Design_Visualization.pdf
+├── vercel.json         # Vercel configuration
 └── .github/workflows/  # GitHub Actions for deployment
     └── deploy.yml
 ```
