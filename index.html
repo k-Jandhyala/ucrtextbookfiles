@@ -1,130 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Files Selector</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 500px;
-            width: 100%;
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 28px;
-            text-align: center;
-        }
-
-        .file-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        a {
-            display: flex;
-            align-items: center;
-            padding: 20px 25px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        a:hover::before {
-            left: 100%;
-        }
-
-        a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        a:active {
-            transform: translateY(-1px);
-        }
-
-        a::after {
-            content: '→';
-            margin-left: auto;
-            font-size: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        a:hover::after {
-            transform: translateX(5px);
-        }
-
-        .icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 15px;
-            opacity: 0.9;
-        }
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+      body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      }
+      .container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+      width: 100%;
+      animation: fadeIn 0.6s ease-out;
+      }
+      @keyframes fadeIn {
+      from {
+      opacity: 0;
+      transform: translateY(20px);
+      }
+      to {
+      opacity: 1;
+      transform: translateY(0);
+      }
+      }
+      h1 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 28px;
+      text-align: center;
+      }
+      .file-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      }
+      a {
+      display: flex;
+      align-items: center;
+      padding: 20px 25px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      }
+      a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+      }
+      a:hover::before {
+      left: 100%;
+      }
+      a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+      }
+      a:active {
+      transform: translateY(-1px);
+      }
+      a::after {
+      content: '→';
+      margin-left: auto;
+      font-size: 20px;
+      transition: transform 0.3s ease;
+      }
+      a:hover::after {
+      transform: translateX(5px);
+      }
+      .icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+      opacity: 0.9;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>📚 Course Materials</h1>
-        <div class="file-list">
-            <a href="Textbooks/Engineering Design Visualization.pdf">
-                <svg class="icon" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"/>
-                </svg>
-                ME009 Textbook
-            </a>
-        </div>
+      <h1>📚 Course Materials</h1>
+      <div class="file-list">
+        <a href="/Textbooks/Engineering_Design_Visualization.pdf" target="_blank">
+          <svg class="icon" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"/>
+          </svg>
+          ME009 Textbook
+        </a>
+      </div>
     </div>
-</body>
+  </body>
 </html>
